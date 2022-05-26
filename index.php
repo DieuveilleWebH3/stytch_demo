@@ -9,7 +9,7 @@
     //connexion a la base de donnees
     include 'connexionDB.php';
 
-    $titre = 'Inscription';
+    $titre = 'Index';
     
 ?>
 
@@ -20,20 +20,38 @@
         <head>
 
             <!-- Latest compiled and minified CSS -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
             <!-- Optional theme -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+            <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
 
             <!-- Latest compiled and minified JavaScript -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
                  
             <!-- JQuery -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+
+
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
             <style>
-            #success_message{ display: none;}
+
+                .invalid { border-color: red; }
+                #error { color: red } 
+                
+                #success_message{ display: none;}
 
             </style>
         </head>
@@ -42,7 +60,7 @@
  
             <div class="container col-xl-12" style="margin-top:50px;">
                 
-                <form class="well form-horizontal" action="inscription.php" method="post"  id="inscription_form">
+                <form class="needs-validation well form-horizontal" action="inscription.php" method="post"  id="inscription_form" novalidate>
                     <fieldset>
 
                     <!-- Form Name -->
@@ -65,8 +83,13 @@
                                 <div class="col-lg-4 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                        <input  name="nom" placeholder="nom" class="form-control"  type="text">
+                                        <input name="nom" placeholder="nom" class="form-control" type="text">
                                     </div>
+                                </div>
+
+
+                                <div class="invalid-feedback">
+                                    Ce champ est obligatoire
                                 </div>
                             </div>
 
@@ -83,6 +106,11 @@
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                         <input name="prenom" placeholder="prenom" class="form-control"  type="text">
                                     </div>
+                                </div>
+
+
+                                <div class="invalid-feedback">
+                                    Ce champ est obligatoire
                                 </div>
                             </div>
 
@@ -103,8 +131,13 @@
                                 <div class="col-md-4 inputGroupContainer">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                        <input  name="adresse" placeholder="adresse" class="form-control"  type="text">
+                                        <input name="adresse" placeholder="adresse" class="form-control"  type="text">
                                     </div>
+                                </div>
+
+
+                                <div class="invalid-feedback">
+                                    Ce champ est obligatoire
                                 </div>
                             </div>
 
@@ -121,6 +154,10 @@
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
                                         <input name="ville" placeholder="ville" class="form-control"  type="text">
                                     </div>
+                                </div>
+
+                                <div class="invalid-feedback">
+                                    Ce champ est obligatoire
                                 </div>
                             </div>
 
@@ -144,6 +181,10 @@
                                         <input name="code_postal" placeholder="code postal" class="form-control"  type="text">
                                     </div>
                                 </div>
+
+                                <div class="invalid-feedback">
+                                    Ce champ est obligatoire
+                                </div>
                             </div>
 
                         </div>
@@ -152,14 +193,19 @@
 
                           <!-- Text input-->
                       
-                          <div class="form-group">
-                              <label class="col-md-4 control-label">Téléphone</label>  
-                              <div class="col-md-4 inputGroupContainer">
-                                  <div class="input-group">
-                                      <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                      <input name="tel" placeholder="0864345078" class="form-control" type="text">
-                                  </div>
-                              </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Téléphone</label>  
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                        <input name="tel" placeholder="0864345078" class="form-control" type="text">
+                                    </div>
+                                </div>
+
+
+                                <div class="invalid-feedback">
+                                    Ce champ est obligatoire
+                                </div>
                           </div>
                                
                         </div>
@@ -174,13 +220,17 @@
 
                             <!-- Text input-->
                             <div class="form-group">
-                              <label class="col-md-4 control-label">E-Mail</label>  
-                              <div class="col-md-4 inputGroupContainer">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                    <input name="email" placeholder="Adresse E-Mail" class="form-control"  type="text">
+                                <label class="col-md-4 control-label">E-Mail</label>  
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                        <input name="email" placeholder="Adresse E-Mail" class="form-control"  type="text">
+                                    </div>
                                 </div>
-                              </div>
+
+                                <div class="invalid-feedback">
+                                    Ce champ est obligatoire
+                                </div>
                             </div>
 
                         </div>
@@ -211,13 +261,13 @@
                             <!-- Text input-->
 
                             <div class="form-group">
-                            <label class="col-md-4 control-label" >Mot de passe</label> 
-                            <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input name="mdp" placeholder="Mot de passe" class="form-control"  type="password">
-                            </div>
-                            </div>
+                                <label class="col-md-4 control-label" >Mot de passe</label> 
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input name="mdp" placeholder="Mot de passe" class="form-control" type="password">
+                                    </div>
+                                </div>
                             </div>
 
                         </div> 
@@ -227,13 +277,13 @@
                             <!-- Text input-->
 
                             <div class="form-group">
-                            <label class="col-md-4 control-label" >Confirm Password</label> 
-                            <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input name="mdp_confirmation" placeholder="Confirmation mot de passe" class="form-control"  type="password">
-                            </div>
-                            </div>
+                                <label class="col-md-4 control-label" >Confirm Password</label> 
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input name="mdp_confirmation" placeholder="Confirmation mot de passe" class="form-control"  type="password">
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -245,7 +295,7 @@
                             <div class="col-md-6">
 
                                 <div class="form-group"> 
-                                    <label class="col-md-4 control-label">Comment nous avez-vous connu ?</label>
+                                    <label id="that_label" class="col-md-4 control-label">Comment nous avez-vous connu ?</label>
                                     <div class="col-md-4 selectContainer">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
@@ -272,10 +322,12 @@
 
                     <!-- Button -->
                     <div class="form-group">
-                    <label class="col-md-4 control-label"></label>
-                    <div class="col-md-4"><br>
-                    &nbsp<button type="submit" class="btn btn-warning" >&nbsp Créer mon compte <span class="glyphicon glyphicon-send"></span>&nbsp</button>
-                    </div>
+                        <label class="col-md-4 control-label"></label>
+                        <div class="col-md-4">
+                            <br>
+                            &nbsp
+                            <button type="submit" class="btn btn-warning" >&nbsp Créer mon compte <span class="glyphicon glyphicon-send"></span>&nbsp</button>
+                        </div>
                     </div>
 
                     </fieldset>
@@ -286,7 +338,77 @@
 
 
 
-        <script>
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+
+        <script type="text/javascript">
+            
+
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var user_email = document.getElementById("email");     
+
+            user_email.onblur = function() 
+            {
+                if ( !(user_email.value.match(mailformat)) ) 
+                {
+                    user_email.classList.add('invalid');
+                    error.innerHTML = 'Veuillez entrer un format d\'email valid \n \n e.g. john-doe@gmail.com'
+                }
+            };
+
+            user_email.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    error.innerHTML = "";
+                }
+            };
+
+
+            // // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation');
+                
+                let department = document.getElementById('department');
+
+                // console.log("\n");
+                // console.log(department);
+                // console.log(department.value);
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+
+                        if ( !form.checkValidity() ) 
+                        {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+
+                        if ( (!the_department) || (the_department.value == '') || (the_department.value == 'Selectionnez') )  
+                        {
+                            the_department.style.border = "thin solid red";
+                            // document.getElementById('that_label').getAttribute('class');
+                            // document.getElementById('that_label').removeAttribute("class");
+                            // document.getElementById('that_label').setAttribute('class', 'mb-1');
+                            document.getElementById('that_label').style.color = "red";
+
+                            event.preventDefault();
+                            event.stopPropagation()
+                        }
+
+                        // document.getElementById('that_label').removeAttribute("class");
+                        // document.getElementById('that_label').setAttribute('class', 'mb-1');
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+
+
             $(document).ready(function() {
                 $('#inscription_form').bootstrapValidator({
                     // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
